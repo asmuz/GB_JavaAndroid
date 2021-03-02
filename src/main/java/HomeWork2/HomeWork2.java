@@ -6,19 +6,19 @@ public class HomeWork2 {
     public static void main(String[] args) {
         System.out.println("Задание 1:");
         int[] arr1 = randomArray(10, 2); // генерируем массив
-        printArray(arr1);
-        printArray(taskOne(arr1));
+        printArray(arr1); // выводим массив в консоль
+        printArray(taskOne(arr1)); // запускаем метод и выводим результат
 
         System.out.println("\nЗадание 2:");
         printArray(taskTwo(8, 3));
 
         System.out.println("\nЗадание 3:");
         int[] arr3 = randomArray(10, 12); // генерируем массив
-        printArray(arr3);// выводим исходный массив
-        printArray(taskThree(arr3));
+        printArray(arr3); // выводим массив в консоль
+        printArray(taskThree(arr3)); // запускаем метод и выводим результат
 
         System.out.println("\nЗадание 4:");
-        taskFour(7);
+        taskFour(7); // запускаем метод и выводим результат
 
         System.out.println("Задание 5:");
         taskFive(10, 100);
@@ -42,7 +42,7 @@ public class HomeWork2 {
             if (arr[i] == 1) arr[i] = 0; // проверяем и преобразуем
             else arr[i] = 1;
         }
-        return arr;
+        return arr; // возвращаем преобразованный массив
     }
 
     public static int[] taskTwo(int len, int step) {
@@ -52,7 +52,7 @@ public class HomeWork2 {
         for (int i = 0; i < len; i++) {
             arr[i] = i * step; // заполняем массив прогрессией c шагом step
         }
-        return arr;
+        return arr; // возвращаем преобразованный массив
     }
 
     public static int[] taskThree(int[] arr) {
@@ -62,7 +62,7 @@ public class HomeWork2 {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < 6) arr[i] *= 2; // проверяем и преобразуем нужные элементы массива
         }
-        return arr;
+        return arr; // возвращаем преобразованный массив
     }
 
     public static void taskFour(int size) {
@@ -143,7 +143,7 @@ public class HomeWork2 {
                 arr[arr.length - 1] = first; // последнему элементу присваиваем значение первого элемента
             }// повторяем необходимое количество раз
         }
-        return arr;
+        return arr; // возвращаем преобразованный массив
     }
 
     public static int[] randomArray(int size, int max) {
@@ -152,7 +152,7 @@ public class HomeWork2 {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * max);
         }
-        return arr;
+        return arr; // возвращаем сгенерированнывй массив
     }
 
     public static void printArray(int[] arr) {
