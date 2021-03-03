@@ -100,10 +100,10 @@ public class HomeWork2 {
             int leftSum = 0; // сбрасываем сумму левой
             int rightSum = 0; // и правой части
             for (int j = 0; j <= i; j++) { // запускаем цикл для левой части
-                leftSum = leftSum + arr[j]; // складываем все элементы левой части
+                leftSum += arr[j]; // складываем все элементы левой части
             }
             for (int k = i + 1; k < arr.length; k++) { // запускаем цикл для правой части
-                rightSum = rightSum + arr[k]; // складываем все элементы правой части
+                rightSum += arr[k]; // складываем все элементы правой части
             }
             if (leftSum == rightSum) { // если суммы равны
                 int[] leftArray = Arrays.copyOfRange(arr, 0, i + 1); // создаем копию левой части
