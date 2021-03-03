@@ -21,7 +21,9 @@ public class HomeWork2 {
         taskFour(7); // запускаем метод и выводим результат
 
         System.out.println("Задание 5:");
-        taskFive(10, 100);
+        int[] arr5 = randomArray(10, 100);// сгенерируем случайный массив
+        printArray(arr5);
+        taskFive(arr5);
 
         System.out.println("\nЗадание 6:");
         int[] arr6 = randomArray(10, 3); // генерируем массив
@@ -77,16 +79,14 @@ public class HomeWork2 {
         print2dArray(arr); // выводим в консоль результат
     }
 
-    public static void taskFive(int arraySize, int arrayMax) {
+    public static void taskFive(int[] arr) {
     /*  5. Задать одномерный массив и найти в нем минимальный и максимальный элементы (без помощи интернета);*/
-        int[] arr = randomArray(arraySize, arrayMax);// сгенерируем случайный массив
-        int min = arrayMax; // переменная для хранения минимального
-        int max = 0; // и максимального значения
+        int min = arr[0]; // переменная для хранения минимального
+        int max = arr[0]; // и максимального значения
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < min) min = arr[i]; // если текущий элемент меньше минимального, то минимальный этот элемент
             if (arr[i] > max) max = arr[i]; // аналогично с максимальным
         }
-        System.out.println("Array: " + Arrays.toString(arr));  // выводим массив
         System.out.println("Min: " + min);
         System.out.println("Max: " + max);
     }
