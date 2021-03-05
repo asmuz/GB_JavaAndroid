@@ -8,9 +8,9 @@ public class TicTacToe {
     public static final char DOT_O = 'O';//символ нолика
     public static final char DOT_EMPTY = '•';//символ пустой ячейки
     public static final Scanner SCAN = new Scanner(System.in);//сканнер
-    public static final Random RAND = new Random();//рандом для ходя компьютера
+    public static final Random RAND = new Random();//рандом для хода компьютера
     public static char[][] map;//массив игрового поля
-    public static final int MAP_SIZE = 3;// размер поля
+    public static final int MAP_SIZE = 5;// размер поля
     public static final int WIN_SIZE = 3;// комбинация для выигрыша
 
     public static void main(String[] args) {
@@ -82,23 +82,42 @@ public class TicTacToe {
     }
 
     public static boolean checkWin1(char ch){
+
         /* Медод проверки заключается в подсчете количества определенных символов в строке, колонке или диагонали
         * метод довольно примитивен и не подходит для полей с размерностью болше 5, а так же проверка диагоналей
         * может не работать корректно на болях больше 3 */
-        for (int i = 0; i < MAP_SIZE; i++) {//запускаем внешний цикл
+
+        boolean flagX = false;//флаг "неразрывности" комбинации
+        boolean flagY = false;
+        for (int i = 0; i < MAP_SIZE; i++) {//запускаем внешний цикл для вертикали и горизонтали
             int countX = 0;//сбрасываем счетчик символов по горизонтали
             int countY = 0;//сбрасываем счетчик символов по вертикали
-            int countD1 = 0;//сбрасываем счетчик символов по диагонали 1
-            int countD2 = 0;//сбрасываем счетчик символов по диагонали 2
             for (int j = 0; j < MAP_SIZE; j++) {//запускаем внутренний цикл
-                if(map[i][j] == ch) countX++;//считаем сколько символов в строке
-                if(map[j][i] == ch) countY++;//считаем сколько символов в колонке
-                if(map[j][j] == ch) countD1++;//считаем сколько символов в диагонали 1
-                if(map[MAP_SIZE - 1 - j][j] == ch) countD2++;//считаем сколько символов в диагонали 2
+                // проверки по горизонтали
+                if(map[i][j] == ch && !flagX) {// если нужный символ первый в комбинации (флаг опущен)
+                    countX = 1;//начинаем считать
+                    flagX = true;//поднимаем флаг
+                } else if(map[i][j] == ch && flagX) {//если нужный символ идёт в комбинации (флаг поднят)
+                    countX++;//прибавляем счетчик
+                } else if(map[i][j] != ch) {// если нужного символа нет
+                    countX = 0;//сбрасываем счетчик
+                    flagX = false; //опускаем флаг
+                }
+                // проверки по вертикали
+                if(map[j][i] == ch && !flagY) {// если нужный символ первый в комбинации (флаг опущен)
+                    countY = 1;//начинаем считать
+                    flagY = true;//поднимаем флаг
+                } else if(map[j][i] == ch && flagY) {//если нужный символ идёт в комбинации (флаг поднят)
+                    countY++;//прибавляем счетчик
+                } else if(map[j][i] != ch) {// если нужного символа нет
+                    countY = 0;//сбрасываем счетчик
+                    flagY = false; //опускаем флаг
+                }
             }
-            if (countX == WIN_SIZE || countY == WIN_SIZE || countD1 == WIN_SIZE || countD2 == WIN_SIZE) return true;
+            if (countX >= WIN_SIZE || countY >= WIN_SIZE) return true;//если в строке или колонке есть необходимое количество символов, значит победа
 
         }
+
         return false;
     }
 }
