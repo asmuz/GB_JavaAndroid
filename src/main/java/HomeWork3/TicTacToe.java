@@ -172,11 +172,19 @@ public class TicTacToe {
             int emptyX = 0;// сбрасываем счётчик пустых клеток по горизонтали
             int countY = 0;// сбрасываем счётчик заполненных клеток по вертикали
             int emptyY = 0;// сбрасываем счётчик пустых клеток по вертикали
+            int countD1 = 0;// сбрасываем счётчик заполненных клеток по диагонали 1
+            int emptyD1 = 0;// сбрасываем счётчик пустых клеток по диагонали 1
+            int countD2 = 0;// сбрасываем счётчик заполненных клеток по диагонали 2
+            int emptyD2 = 0;// сбрасываем счётчик пустых клеток по диагонали 2
             for (int j = 0; j < MAP_SIZE; j++) { //запускаем внутренний цикл
                 if (map[i][j] == DOT_EMPTY) emptyX++;
                 if (map[i][j] == ch) countX++;
                 if (map[j][i] == DOT_EMPTY) emptyY++;
                 if (map[j][i] == ch) countY++;
+                if (map[j][j] == DOT_EMPTY) emptyD1++;
+                if (map[j][j] == ch) countD1++;
+                if (map[MAP_SIZE - j - 1][j] == DOT_EMPTY) emptyD2++;
+                if (map[MAP_SIZE - j - 1][j] == ch) countD2++;
             }
             if (countX == (WIN_SIZE - 1) && emptyX > 0) {//если в ряду почти выигрышная комбинация и есть пустая ячейка
                 for (int k = 0; k < MAP_SIZE; k++) {// пробегаем по этому ряду
@@ -191,6 +199,24 @@ public class TicTacToe {
                 for (int k = 0; k < MAP_SIZE; k++) {// пробегаем по этой колонке
                     if (cellValid(k, i)) {
                         map[k][i] = DOT_O;// и блокируем свободную клетку
+                    }
+                }
+                printMap();// печатаем поле
+                return true;// передаём, что ход заблокирован
+            }
+            if (countD1 == (WIN_SIZE - 1) && emptyD1 > 0) {//если по диагонали 1 почти выигрышная комбинация и есть пустая ячейка
+                for (int k = 0; k < MAP_SIZE; k++) {// пробегаем по этой диагонали
+                    if (cellValid(k, k)) {
+                        map[k][k] = DOT_O;// и блокируем свободную клетку
+                    }
+                }
+                printMap();// печатаем поле
+                return true;// передаём, что ход заблокирован
+            }
+            if (countD2 == (WIN_SIZE - 1) && emptyD2 > 0) {//если по диагонали 1 почти выигрышная комбинация и есть пустая ячейка
+                for (int k = 0; k < MAP_SIZE; k++) {// пробегаем по этой диагонали
+                    if (cellValid(MAP_SIZE - k - 1, k)) {
+                        map[MAP_SIZE - k - 1][k] = DOT_O;// и блокируем свободную клетку
                     }
                 }
                 printMap();// печатаем поле
