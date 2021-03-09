@@ -10,20 +10,25 @@ public class TicTacToe {
     public static final Scanner SCAN = new Scanner(System.in);//сканнер
     public static final Random RAND = new Random();//рандом для хода компьютера
     public static char[][] map;//массив игрового поля
-    public static final int MAP_SIZE = 5;// размер поля
+    public static final int MAP_SIZE = 3;// размер поля
     public static final int WIN_SIZE = 3;// комбинация для выигрыша
 
     public static void main(String[] args) {
         initMap();
-        while(true) {
-            userTurn();
-            if (checkWin1(DOT_X)) {
-                System.out.println("Игрок победил!");//проверяем выиграл ли игрок
+        while (true) {
+            userTurn(); // ход игрока
+            if (checkWin1(DOT_X)) {// проверяем выиграл ли игрок 1
+                System.out.println("Игрок победил!");
                 break;
             }
-            randomTurn();
-            if (checkWin1(DOT_O)) {
-                System.out.println("Компьютер победил!");//проверяем выиграл ли игрок
+            if (isMapFull()) {
+                System.out.println("Ничья!");
+                break;
+            }
+            if (!blocking(DOT_X)) randomTurn();//если нужно, блокируем выигрышную кобинацию, или делаем рандомный ход
+
+            if (checkWin1(DOT_O)) {// проверяем выиграл ли игрок 2
+                System.out.println("Компьютер победил!");
                 break;
             }
         }
@@ -52,9 +57,11 @@ public class TicTacToe {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     public static void userTurn() { // ход игрока
+        System.out.println("Ход игрока:\nВведите номер СТРОКИ и КОЛОНКИ:");
         int row, col;
         do {
             row = SCAN.nextInt() - 1;// ожидаем ввод координат
@@ -71,52 +78,94 @@ public class TicTacToe {
     }
 
     public static void randomTurn() { //ход компьютера "на угад"
+        System.out.println("Ход компьютера:");
         int row, col;
         do {
             row = RAND.nextInt(MAP_SIZE);
             col = RAND.nextInt(MAP_SIZE);
         } while (!cellValid(row, col));// проверяем, можно ли сюда ходить
         map[row][col] = DOT_O; //печатаем нолик в указанную ячейку
-        System.out.println();//пустая строка перед выводом поля
         printMap();//печатаем игровое поле
     }
 
-    public static boolean checkWin1(char ch){
+    public static void turn(int row, int col, char dot) {
+        map[row][col] = dot; //печатаем в указанную ячейку
+    }
+
+    public static boolean checkWin1(char ch) {
 
         /* Медод проверки заключается в подсчете количества определенных символов в строке, колонке или диагонали
-        * метод довольно примитивен и не подходит для полей с размерностью болше 5, а так же проверка диагоналей
-        * может не работать корректно на болях больше 3 */
+         * метод довольно примитивен и не подходит для полей с размерностью болше 5, а так же проверка диагоналей
+         * может не работать корректно на болях больше 3 */
 
         boolean flagX = false;//флаг "неразрывности" комбинации
         boolean flagY = false;
+        boolean flagD1 = false;
+        boolean flagD2 = false;
         for (int i = 0; i < MAP_SIZE; i++) {//запускаем внешний цикл для вертикали и горизонтали
             int countX = 0;//сбрасываем счетчик символов по горизонтали
             int countY = 0;//сбрасываем счетчик символов по вертикали
+            int countD1 = 0;//сбрасываем счетчик символов по диагонали 1
+            int countD2 = 0;//сбрасываем счетчик символов по диагонали 2
             for (int j = 0; j < MAP_SIZE; j++) {//запускаем внутренний цикл
                 // проверки по горизонтали
-                if(map[i][j] == ch && !flagX) {// если нужный символ первый в комбинации (флаг опущен)
+                if (map[i][j] == ch && !flagX) {// если нужный символ первый в комбинации (флаг опущен)
                     countX = 1;//начинаем считать
                     flagX = true;//поднимаем флаг
-                } else if(map[i][j] == ch && flagX) {//если нужный символ идёт в комбинации (флаг поднят)
+                } else if (map[i][j] == ch && flagX) {//если нужный символ идёт в комбинации (флаг поднят)
                     countX++;//прибавляем счетчик
-                } else if(map[i][j] != ch) {// если нужного символа нет
+                } else if (map[i][j] != ch) {// если нужного символа нет
                     countX = 0;//сбрасываем счетчик
                     flagX = false; //опускаем флаг
                 }
                 // проверки по вертикали
-                if(map[j][i] == ch && !flagY) {// если нужный символ первый в комбинации (флаг опущен)
+                if (map[j][i] == ch && !flagY) {// если нужный символ первый в комбинации (флаг опущен)
                     countY = 1;//начинаем считать
                     flagY = true;//поднимаем флаг
-                } else if(map[j][i] == ch && flagY) {//если нужный символ идёт в комбинации (флаг поднят)
+                } else if (map[j][i] == ch && flagY) {//если нужный символ идёт в комбинации (флаг поднят)
                     countY++;//прибавляем счетчик
-                } else if(map[j][i] != ch) {// если нужного символа нет
+                } else if (map[j][i] != ch) {// если нужного символа нет
                     countY = 0;//сбрасываем счетчик
                     flagY = false; //опускаем флаг
                 }
+                // проверки по диагонали 1
+                if (map[j][j] == ch && !flagD1) {// если нужный символ первый в комбинации (флаг опущен)
+                    countD1 = 1;//начинаем считать
+                    flagD1 = true;//поднимаем флаг
+                } else if (map[j][j] == ch && flagD1) {//если нужный символ идёт в комбинации (флаг поднят)
+                    countD1++;//прибавляем счетчик
+                } else if (map[j][j] != ch) {// если нужного символа нет
+                    countD1 = 0;//сбрасываем счетчик
+                    flagD1 = false; //опускаем флаг
+                }
+                // проверки по диагонали 2
+                if (map[MAP_SIZE - j - 1][j] == ch && !flagD2) {// если нужный символ первый в комбинации (флаг опущен)
+                    countD2 = 1;//начинаем считать
+                    flagD2 = true;//поднимаем флаг
+                } else if (map[MAP_SIZE - j - 1][j] == ch && flagD2) {//если нужный символ идёт в комбинации (флаг поднят)
+                    countD2++;//прибавляем счетчик
+                } else if (map[MAP_SIZE - j - 1][j] != ch) {// если нужного символа нет
+                    countD2 = 0;//сбрасываем счетчик
+                    flagD2 = false; //опускаем флаг
+                }
             }
-            if (countX >= WIN_SIZE || countY >= WIN_SIZE) return true;//если в строке или колонке есть необходимое количество символов, значит победа
-
+            if (countX >= WIN_SIZE || countY >= WIN_SIZE || countD1 >= WIN_SIZE || countD2 >= WIN_SIZE)
+                return true;//если в строке, колонке или диагоналях есть необходимое количество символов, значит победа
         }
+        return false;
+    }
+
+    public static boolean isMapFull() {
+        for (int i = 0; i < MAP_SIZE; i++) {
+            for (int j = 0; j < MAP_SIZE; j++) {
+                if (map[i][j] == DOT_EMPTY) return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean blocking(char ch) {
+
 
         return false;
     }
