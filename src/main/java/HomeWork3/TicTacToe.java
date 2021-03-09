@@ -165,7 +165,39 @@ public class TicTacToe {
     }
 
     public static boolean blocking(char ch) {
+        // Если у игрока почти выигрышная комбинация, блокируем его ход
 
+        for (int i = 0; i < MAP_SIZE; i++) { //запускаем внешний цикл
+            int countX = 0;// сбрасываем счётчик заполненных клеток по горизонтали
+            int emptyX = 0;// сбрасываем счётчик пустых клеток по горизонтали
+            int countY = 0;// сбрасываем счётчик заполненных клеток по вертикали
+            int emptyY = 0;// сбрасываем счётчик пустых клеток по вертикали
+            for (int j = 0; j < MAP_SIZE; j++) { //запускаем внутренний цикл
+                if (map[i][j] == DOT_EMPTY) emptyX++;
+                if (map[i][j] == ch) countX++;
+                if (map[j][i] == DOT_EMPTY) emptyY++;
+                if (map[j][i] == ch) countY++;
+            }
+            if (countX == (WIN_SIZE - 1) && emptyX > 0) {//если в ряду почти выигрышная комбинация и есть пустая ячейка
+                for (int k = 0; k < MAP_SIZE; k++) {// пробегаем по этому ряду
+                    if (cellValid(i, k)) {
+                        map[i][k] = DOT_O;// и блокируем свободную клетку
+                    }
+                }
+                printMap();// печатаем поле
+                return true;// передаём, что ход заблокирован
+            }
+            if (countY == (WIN_SIZE - 1) && emptyY > 0) {//если в колонке почти выигрышная комбинация и есть пустая ячейка
+                for (int k = 0; k < MAP_SIZE; k++) {// пробегаем по этой колонке
+                    if (cellValid(k, i)) {
+                        map[k][i] = DOT_O;// и блокируем свободную клетку
+                    }
+                }
+                printMap();// печатаем поле
+                return true;// передаём, что ход заблокирован
+            }
+
+        }
 
         return false;
     }
