@@ -10,8 +10,8 @@ public class TicTacToe {
     public static final Scanner SCAN = new Scanner(System.in);//сканнер
     public static final Random RAND = new Random();//рандом для хода компьютера
     public static char[][] map;//массив игрового поля
-    public static final int MAP_SIZE = 3;// размер поля
-    public static final int WIN_SIZE = 3;// комбинация для выигрыша
+    public static final int MAP_SIZE = 5;// размер поля
+    public static final int WIN_SIZE = 4;// комбинация для выигрыша
 
     public static void main(String[] args) {
         initMap();
@@ -224,7 +224,6 @@ public class TicTacToe {
             }
 
         }
-
         return false;
     }
 }
