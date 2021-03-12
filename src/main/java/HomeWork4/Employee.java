@@ -16,13 +16,19 @@ public class Employee {
         this.salary = salary;
         this.age = age;
     }
-    public void printInfo(){
+
+    public int getAge() {
+        return age;
+    }
+
+    public void printInfo() {
         System.out.println("Name: " + name);
         System.out.println("Position: " + position);
         System.out.println("E-Mail: " + email);
         System.out.println("Phone: " + phone);
         System.out.println("Salary: " + salary);
         System.out.println("Age: " + age);
+        System.out.println("- - - - - - - - - -");
     }
 
 }
