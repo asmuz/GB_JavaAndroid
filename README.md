@@ -1,5 +1,6 @@
 # Java Core для Android
 Домашние работы по курсу Java Core для Android на портале GeekBrains.ru
+
 Автор: [AsmuZ](http://asmuz.ru)
 
 ## Домашнее задание 1 (Java. Введение)
