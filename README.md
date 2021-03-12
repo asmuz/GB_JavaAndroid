@@ -10,6 +10,6 @@ ____
 ## Домашнее задание 3 (Крестики-Нолики в процедурном стиле)
 https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork3
 ____
-## Домашнее задание 3 (Введение в ООП)
+## Домашнее задание 4 (Введение в ООП)
 https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork4
 ____
