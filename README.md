@@ -1,8 +1,6 @@
 # Java Core для Android
-Домашние работы по курсу Java Core для Android на портале GeekBrains.ru
-
-Автор: [AsmuZ](http://asmuz.ru)
-
+Домашние работы по курсу Java Core для Android на портале **GeekBrains.ru** ученика **[AsmuZ](http://asmuz.ru)**
+____
 ## Домашнее задание 1 (Java. Введение)
 https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork1
 ____
