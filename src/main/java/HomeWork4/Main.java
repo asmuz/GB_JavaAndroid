@@ -8,7 +8,7 @@ package HomeWork4;
 
 public class Main {
     public static void main(String[] args) {
-        Employee[] employeeArray = new Employee[5];
+        Employee[] employeeArray = new Employee[5]; // инициируем массив сотрудников и заполняем его
         employeeArray[0] = new Employee("Vasily", "Director", "vasily@mail.ru", "+7-111-111-1111", 100_000, 44);
         employeeArray[1] = new Employee("Peter", "Programmer", "peter@mail.ru", "+7-222-222-2222", 70_000, 31);
         employeeArray[2] = new Employee("Maria", "Accountant", "maria@mail.ru", "+7-333-333-3333", 80_000, 50);
@@ -16,6 +16,7 @@ public class Main {
         employeeArray[4] = new Employee("Svetlana", "Cleaning", "svetlana@mail.ru", "+7-555-555-5555", 40_000, 55);
 
         for (int i = 0; i < employeeArray.length; i++) {
+            // проверяем возраст и выводим информацию о сотрудниках старше 40 лет
             if(employeeArray[i].getAge() > 40) employeeArray[i].printInfo();
         }
     }

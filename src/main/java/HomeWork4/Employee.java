@@ -1,6 +1,8 @@
 package HomeWork4;
 
+// создаем класс "Сотрудник"
 public class Employee {
+    // инициируем необходимые поля
     private String name;
     private String position;
     private String email;
@@ -8,6 +10,7 @@ public class Employee {
     private int salary;
     private int age;
 
+    // создаем конструктор
     public Employee(String name, String position, String email, String phone, int salary, int age) {
         this.name = name;
         this.position = position;
@@ -17,10 +20,12 @@ public class Employee {
         this.age = age;
     }
 
+    // создаем геттер для возраста
     public int getAge() {
         return age;
     }
 
+    // метод печати информации о сотруднике
     public void printInfo() {
         System.out.println("Name: " + name);
         System.out.println("Position: " + position);
