@@ -13,6 +13,6 @@ ____
 ## Домашнее задание 4 (Введение в ООП)
 https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork4
 ____
-## Домашнее задание 5 (Продвинутое в ООП)
+## Домашнее задание 5 (Продвинутое ООП)
 https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork5
 ____
