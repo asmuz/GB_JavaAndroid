@@ -8,7 +8,7 @@ public class Cat extends Animal {
 
     @Override
     public void run(int len) {
-        if(len <= 200) System.out.println("Кот " + name + " пробежал " + len + " м.");
+        if (len <= 200) System.out.println("Кот " + name + " пробежал " + len + " м.");
         else System.out.println("Кот " + name + " не может пробежать " + len + " м.");
     }
 

@@ -7,10 +7,11 @@ public class Animal {
         this.name = name;
     }
 
-    public void run(int len){
+    public void run(int len) {
         System.out.println(name + " пробежал " + len + " метров");
     }
-    public void swim(int len){
+
+    public void swim(int len) {
         System.out.println(name + " проплыл " + len + " метров");
     }
 }
