@@ -1,9 +1,15 @@
 package HomeWork5;
 
 public class Cat extends Animal {
+    static int counter;
 
     public Cat(String name) {
         super(name);
+        counter++;
+    }
+
+    public static int getCounter() {
+        return counter;
     }
 
     @Override

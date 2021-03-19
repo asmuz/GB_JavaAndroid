@@ -17,5 +17,9 @@ public class Main {
         Dog d2 = new Dog("Тузик");
         d2.run(600);
         d2.swim(7);
+
+        System.out.println("Всего котов: " + Cat.getCounter());
+        System.out.println("Всего собак: " + Dog.getCounter());
+        System.out.println("Всего животных: " + Animal.getCounter());
     }
 }
