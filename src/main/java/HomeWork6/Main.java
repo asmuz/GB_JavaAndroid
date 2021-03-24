@@ -15,13 +15,17 @@ package HomeWork6;
 
 public class Main {
     public static void main(String[] args) {
-        Cat cat = new Cat("Барсик", 10);
-        Bowl bowl = new Bowl(15);
-        cat.isSatiety();
-        cat.eat(bowl);
-        cat.isSatiety();
-        cat.eat(bowl);
-        bowl.increaseFood(5);
-        cat.eat(bowl);
+        Cat[] cats = {// создаем массив из котиков
+                new Cat("Барсик", 5),
+                new Cat("Мурзик", 6),
+                new Cat("Котофей", 4),
+        };
+        Bowl bowl = new Bowl(14); // создаем миску
+
+        for (Cat c : cats) {
+            c.isSatiety(); // проверяем сытость
+            c.eat(bowl); // котик кушает из миски
+            c.isSatiety(); // проверяем сытость после еды
+        }
     }
 }
