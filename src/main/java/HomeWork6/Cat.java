@@ -10,8 +10,11 @@ public class Cat {
     }
 
     public void eat(Bowl bowl) {
-        bowl.decreaseFood(this.appetite);
-        System.out.printf("Cat %s had ate from bowl for %d food!\n", this.name, this.appetite);
+        if (bowl.getFood() >= this.appetite) {
+            bowl.decreaseFood(this.appetite);
+            System.out.printf("Кот %s съел из миски %d еды\nВ миске осталось %d еды\n", this.name, this.appetite, bowl.getFood());
+        }
+        else System.out.printf("В миске не хватает %s еды, чтобы кот %s наелся!", this.appetite - bowl.getFood(), this.name);
     }
 
     public String getName() {

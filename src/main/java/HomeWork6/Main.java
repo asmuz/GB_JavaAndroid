@@ -15,6 +15,10 @@ package HomeWork6;
 
 public class Main {
     public static void main(String[] args) {
+        Cat cat = new Cat("Барсик", 10);
+        Bowl bowl = new Bowl(15);
 
+        cat.eat(bowl);
+        cat.eat(bowl);
     }
 }

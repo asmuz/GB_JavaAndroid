@@ -3,6 +3,10 @@ package HomeWork6;
 public class Bowl {
     private int food;
 
+    public Bowl(int food) {
+        this.food = food;
+    }
+
     public void putFood(int amount) {
         this.food += amount;
     }
