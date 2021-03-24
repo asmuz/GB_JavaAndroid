@@ -17,7 +17,7 @@ public class Cat {
             System.out.printf("Кот %s съел из миски %d еды\nВ миске осталось %d еды\n", this.name, this.appetite, bowl.getFood());
             this.satiety = true;// теперь котик сыт
         }
-        else System.out.printf("В миске не хватает %s еды, чтобы кот %s наелся!", this.appetite - bowl.getFood(), this.name);
+        else System.out.printf("В миске не хватает %s еды, чтобы кот %s наелся!\n", this.appetite - bowl.getFood(), this.name);
     }
 
     public String getName() {
@@ -29,6 +29,8 @@ public class Cat {
     }
 
     public boolean isSatiety() {
+        if (satiety) System.out.printf("Кот %s сыт\n", this.name);
+        else System.out.printf("Кот %s голоден\n", this.name);
         return satiety;
     }
 }

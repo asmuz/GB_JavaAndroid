@@ -15,6 +15,11 @@ public class Bowl {
         this.food -= amount;
     }
 
+    public void increaseFood(int amount) {
+        this.food += amount;
+        System.out.println("В миску положили " + amount + " еды");
+    }
+
     public int getFood() {
         return this.food;
     }

@@ -17,9 +17,11 @@ public class Main {
     public static void main(String[] args) {
         Cat cat = new Cat("Барсик", 10);
         Bowl bowl = new Bowl(15);
-        System.out.println(cat.isSatiety());
+        cat.isSatiety();
         cat.eat(bowl);
-        System.out.println(cat.isSatiety());
+        cat.isSatiety();
+        cat.eat(bowl);
+        bowl.increaseFood(5);
         cat.eat(bowl);
     }
 }
