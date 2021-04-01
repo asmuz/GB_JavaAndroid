@@ -19,3 +19,6 @@ ____
 ## Домашнее задание 6 (Практика ООП и работа со строками)
 https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork6
 ____
+## Домашнее задание 7 (Объектно-ориентированное программирование Java)
+https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork7
+____
