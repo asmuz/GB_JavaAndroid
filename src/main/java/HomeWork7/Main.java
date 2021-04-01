@@ -16,6 +16,33 @@ package HomeWork7;
 
 public class Main {
     public static void main(String[] args) {
-    // Не успеваю сдать домашку во время
+        Runner[] runners = {
+                new Human("Петя", 3000, 120),
+                new Human("Коля", 4000, 130),
+                new Human("Саша", 4500, 140),
+                new Cat("Барсик", 1000, 200),
+                new Cat("Мурзик", 1500, 220),
+                new Cat("Васька", 1700, 240),
+                new Robot("Вернер", 10000, 50),
+                new Robot("Робокоп", 100, 0),
+                new Robot("Железный человек", 99999, 9999)
+        };
+        Equipment[] equipments = {
+                new Track(1000),
+                new Track(1500),
+                new Track(2000),
+                new Track(3000),
+                new Track(5000),
+                new Wall(50),
+                new Wall(100),
+                new Wall(150),
+                new Wall(200),
+                new Wall(250),
+        };
+        for (Equipment e : equipments) {
+            for (Runner r : runners) {
+                r.start(e);
+            }
+        }
     }
 }
