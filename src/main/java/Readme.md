@@ -22,3 +22,9 @@ ____
 ## Домашнее задание 7 (Объектно-ориентированное программирование Java)
 https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork7
 ____
+## Домашнее задание 8 (Исключения)
+https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork8
+____
+## Домашнее задание 9 (Базы данных)
+https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork9
+____
