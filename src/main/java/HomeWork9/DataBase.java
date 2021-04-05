@@ -31,10 +31,6 @@ public class DataBase {
         }
     }
 
-//    public static void add() throws SQLException {
-//        PreparedStatement sql = connection.prepareStatement("INSERT INTO cats(id, name, color, age, info) VALUES (?,?,?,?,?);");
-//    }
-
     public static void addCat(Cat cat) throws SQLException {
         PreparedStatement ps = connection.prepareStatement("INSERT INTO cats(id, name, color, age, info) VALUES (?,?,?,?,?);");
         ps.setInt(1, cat.getId());
@@ -43,5 +39,9 @@ public class DataBase {
         ps.setInt(4, cat.getAge());
         ps.setString(5, cat.getInfo());
         ps.executeUpdate();
+    }
+
+    public static void printCats() throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("SELECT * FROM cats;");
     }
 }
