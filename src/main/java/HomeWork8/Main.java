@@ -51,7 +51,6 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     private static int arraySum(String[][] arr) {
