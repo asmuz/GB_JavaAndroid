@@ -15,11 +15,13 @@ package HomeWork10;
 
 public class Main {
     public static void main(String[] args) {
-
+        text = text.replaceAll("—", "");
+        text = text.replaceAll(",", " ");
+        text = text.replaceAll(".", " ");
+        System.out.println(text);
     }
-
-    private static final String text =
-            "Повторюсь — в отраженьях зеркал," +
+    private static String text =
+                    "Повторюсь — в отраженьях зеркал," +
                     "Повторюсь — в эхе собственных мыслей." +
                     "Повторюсь — в слове, что вслух сказал," +
                     "И в стихах, став их сути частицей." +
@@ -43,5 +45,7 @@ public class Main {
                     "Повторюсь — ведь всё в жизни, по кругу идёт." +
                     "Повторюсь — ведь нас сОздало всех Его Слово," +
                     "И меня — повторив, эхо Слова вернёт...";
+
+
 
 }
