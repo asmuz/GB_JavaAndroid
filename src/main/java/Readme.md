@@ -31,3 +31,15 @@ ____
 ## Домашнее задание 10 (Коллекции)
 https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork10
 ____
+## Домашнее задание 11 (Обобщения)
+https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork11
+____
+## Домашнее задание 12 (Многопоточность. Часть 1)
+https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork12
+____
+## Домашнее задание 13 (Многопоточность. Часть 2)
+https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork13
+____
+## Домашнее задание 14 (Обзор средств разработки)
+https://github.com/asmuz/GB_JavaAndroid/tree/master/src/main/java/HomeWork14
+____
